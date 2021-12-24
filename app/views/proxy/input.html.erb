@@ -1,0 +1,42 @@
+<%= form_tag  url_for(controller: :proxy, action: :output), method: 'get' do %>
+
+  <div>
+    <h3>Введите число для проверки гипотезы</h3>
+  </div>
+
+  <div>
+    <%= label_tag :number, 'Число:' %>
+    <%= text_field_tag :number, nil, class: 'form-control' %>
+  </div>
+
+  <br/><br/>
+
+  <fieldset>
+    <legend>Выбор стороны рендеринга</legend>
+
+    <div>
+      <label>
+        <input type="radio" name="side" value="server" id="server-side" checked>
+        Рендеринг на стороне сервера этого приложения
+      </label>
+    </div>
+
+    <div>
+      <label>
+        <input type="radio" name="side" value="client" id="client-side">
+        Отображение сырого XML на стороне браузера
+      </label>
+    </div>
+
+    <div>
+      <label>
+        <input type="radio" name="side" value="client-with-xslt" id="client-side-xslt">
+        Рендеринг на стороне браузера с помощью XSLT
+      </label>
+    </div>
+
+  </fieldset>
+
+  <%= submit_tag 'Отправить', class: 'btn btn-primary' %>
+
+<% end %>
